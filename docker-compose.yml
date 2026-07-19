@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: student_performance_app
+    ports:
+      - "8501:8501"
+    environment:
+      - DB_TYPE=sqlite
+      - SQLITE_DB_PATH=student_performance.db
+      - SECRET_KEY=production-super-secret-key-change-me
+    volumes:
+      - .:/app
+    restart: always
+
+  # Uncomment below for MySQL production setup
+  # db:
+  #   image: mysql:8.0
+  #   container_name: student_mysql_db
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: rootpassword
+  #     MYSQL_DATABASE: student_performance_db
+  #   ports:
+  #     - "3306:3306"
+  #   volumes:
+  #     - mysql_data:/var/lib/mysql
+
+# volumes:
+#   mysql_data:
