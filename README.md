@@ -1,8 +1,6 @@
 # 🎓 AI-Driven Student Performance Prediction & Academic Intelligence Platform
 
 An enterprise-grade, production-ready SaaS platform built with **Python 3.13+**, **Streamlit**, **SQLAlchemy**, **MySQL**, **XGBoost**, **SHAP**, **Plotly**, and **ReportLab**. The platform empowers educational institutions (Admins, Teachers, Students) with predictive academic analytics, early risk warning systems, explainable AI, and automated recommendations.
-
-Alternative link:http://127.0.0.1:8505
 ---
 
 ## 🌟 Key Features
