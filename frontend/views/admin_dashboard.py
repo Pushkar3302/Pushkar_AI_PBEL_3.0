@@ -452,15 +452,26 @@ def render_admin_dashboard():
                                 st.error(err)
 
         with col_exp:
-            st.markdown("##### 📤 Export Student Records")
+            st.markdown("##### 📤 Export Student Records & Dataset")
             if st.button("Generate CSV Export"):
                 with get_db() as db:
                     csv_str = ImportExportService.export_students_csv(db)
                     st.download_button(
-                        label="Download Students CSV",
+                        label="⬇️ Download Students CSV",
                         data=csv_str,
                         file_name="student_records_export.csv",
                         mime="text/csv"
+                    )
+
+            st.markdown("---")
+            if st.button("📄 Generate & Export Dataset in PDF Format", type="primary"):
+                with get_db() as db:
+                    pdf_bytes = ImportExportService.export_dataset_pdf_bytes(db)
+                    st.download_button(
+                        label="⬇️ Download Official Dataset (PDF Format)",
+                        data=pdf_bytes,
+                        file_name="Student_Performance_Dataset.pdf",
+                        mime="application/pdf"
                     )
 
     # --------------------------------------------------------------------------
